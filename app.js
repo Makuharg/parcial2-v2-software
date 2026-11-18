@@ -5,14 +5,29 @@ let tareas = [
   { id: 3, texto: 'Hacer merge de feature-nueva-seccion', completada: false },
 ];
 
+let filtroActual = 'todas';
+
 const form = document.getElementById('form-tarea');
 const input = document.getElementById('input-tarea');
 const lista = document.getElementById('lista-tareas');
+const contador = document.getElementById('contador');
+const botonesFiltro = document.querySelectorAll('.filtro');
+
+function tareasFiltradas() {
+  if (filtroActual === 'pendientes') return tareas.filter((t) => !t.completada);
+  if (filtroActual === 'completadas') return tareas.filter((t) => t.completada);
+  return tareas;
+}
+
+function actualizarContador() {
+  const pendientes = tareas.filter((t) => !t.completada).length;
+  contador.textContent = `${pendientes} pendiente${pendientes === 1 ? '' : 's'} de ${tareas.length}`;
+}
 
 function renderTareas() {
   lista.innerHTML = '';
 
-  tareas.forEach((tarea) => {
+  tareasFiltradas().forEach((tarea) => {
     const li = document.createElement('li');
     if (tarea.completada) li.classList.add('completada');
 
@@ -32,6 +47,8 @@ function renderTareas() {
     li.append(checkbox, texto, btnEliminar);
     lista.appendChild(li);
   });
+
+  actualizarContador();
 }
 
 function agregarTarea(texto) {
@@ -56,6 +73,15 @@ form.addEventListener('submit', (e) => {
     agregarTarea(texto);
     input.value = '';
   }
+});
+
+botonesFiltro.forEach((boton) => {
+  boton.addEventListener('click', () => {
+    filtroActual = boton.dataset.filtro;
+    botonesFiltro.forEach((b) => b.classList.remove('activo'));
+    boton.classList.add('activo');
+    renderTareas();
+  });
 });
 
 renderTareas();

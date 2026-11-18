@@ -25,7 +25,14 @@
         <input type="text" id="input-tarea" placeholder="Nueva tarea..." required>
         <button type="submit">Agregar</button>
       </form>
-
+    <div id="controles">
+        <div id="filtros">
+          <button class="filtro activo" data-filtro="todas">Todas</button>
+          <button class="filtro" data-filtro="pendientes">Pendientes</button>
+          <button class="filtro" data-filtro="completadas">Completadas</button>
+        </div>
+        <p id="contador"></p>
+    </div>
       <ul id="lista-tareas"></ul>
     </section>
   </main>

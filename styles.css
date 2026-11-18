@@ -106,3 +106,35 @@ button {
   color: var(--danger);
   padding: 0.2rem 0.5rem;
 }
+
+#controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#filtros {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.filtro {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.35rem 0.8rem;
+}
+
+.filtro.activo {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+#contador {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
