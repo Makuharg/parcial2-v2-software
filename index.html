@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Gestor de Tareas</h1>
+    <p>Parcial 2 · Ingeniería de Software · ISTEA</p>
+  </header>
+
+  <main>
+    <section id="bienvenida" class="panel">
+      <h2>Bienvenido</h2>
+      <p>Organizá tu trabajo: agregá tareas, marcalas como completadas o eliminalas.</p>
+    </section>
+
+    <section id="tareas" class="panel">
+      <h2>Mis tareas</h2>
+
+      <form id="form-tarea">
+        <input type="text" id="input-tarea" placeholder="Nueva tarea..." required>
+        <button type="submit">Agregar</button>
+      </form>
+
+      <ul id="lista-tareas"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
